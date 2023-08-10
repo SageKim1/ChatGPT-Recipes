@@ -16,7 +16,8 @@ const runPrompt = async () => {
     You can also suggest dishes that require 1 to 3 additional ingredients. \
     If there are limited options with the prepared ingredients, \
     you can suggest dishes that require more ingredients for a wider variety. \
-    You should give only the names of dishes, and not else.\n`;
+    You should give only the names of dishes. \
+    Don't provide the recipe and ingredients. \n`;
 
     const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
