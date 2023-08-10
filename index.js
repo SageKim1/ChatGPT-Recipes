@@ -19,9 +19,29 @@ const runPrompt = async () => {
     You should give only the names of dishes. \
     Don't provide the recipe and ingredients. \n`;
 
+    const appropriateExamples = `
+    Appropriate examples:
+    1. Spaghetti Carbonara
+    2. Chicken Tikka Masala
+    3. Beef Stir-Fry
+    4. Margherita Pizza
+    5. Chocolate Soufflé
+    `;
+
+    const inappropriateExamples = `
+    Inappropriate examples:
+    1. Spaghetti Carbonara with Creamy Sauce
+    2. Chicken Tikka Masala with Basmati Rice
+    3. Beef Stir-Fry with Mixed Vegetables
+    4. Classic Margherita Pizza Recipe
+    5. Decadent Chocolate Soufflé with Raspberry Coulis
+    `;
+
+    const fullPrompt = prompt + appropriateExamples + inappropriateExamples;
+
     const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: [{ role: 'system', content: prompt }],
+        messages: [{ role: 'system', content: fullPrompt }],
         max_tokens: 450,
         temperature: 1,
     });
